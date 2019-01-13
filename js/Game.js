@@ -4,28 +4,37 @@
 
 // Project instructions from the Treehouse website pasted throughout this file to be used as a rubric
 
+// Variables
+const overlay = $('#overlay');
+
 // Create the Game class in the Game.js file.
 class Game {
     // The class should include a constructor that initializes the following properties:
-    constructor (missed, phrases) {
+    constructor () {
        // missed: used to track the number of missed guesses by the player. 
         // The initial value is 0, since no guesses have been made at the start of the game.
        this.missed = 0;
        // phrases: an array of five Phrase objects to use with the game. 
         // A phrase should only include letters and spaces— no numbers, punctuation or other special characters.
-       this.phrases = [];
+       this.phrases = [
+            'Ted Mosby',
+            'Robin Scherbatsky',
+            'Barney Stinson',
+            'Lily Aldrin',
+            'Marshall Eriksen'
+        ];
        // activePhrase: This is the Phrase object that’s currently in play. 
         // The initial value is null.
         // Within the startGame() method, this property will be set to the Phrase object returned from a call to the getRandomPhrase() method.
-       this.activePhrase = null;
+       this.phrase = this.createphrase();
     }
 
 // The class should also have these methods:
 
-// startGame():  , and .
+// startGame()
 startGame() {
     // hides the start screen overlay
-    const overlay = $('#overlay')
+    overlay.hide();
     // calls the getRandomPhrase() method
     getRandomPhrase()
     // sets the activePhrase property with the chosen phrase
@@ -46,9 +55,9 @@ handleInteraction() {}
 // This method should:
     // Disable the selected letter’s onscreen keyboard button.
     // If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
-            const wrong = $('.wrong')
+            // const wrong = $('.wrong')
     // If the phrase includes the guessed letter, add the chosen CSS class to the selected letter's keyboard button, 
-            const chosen = $('.chosen')
+            // const chosen = $('.chosen')
         // call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. If the player has won the game, also call the gameOver() method.
 
 // removeLife(): this method removes a life from the scoreboard, 
