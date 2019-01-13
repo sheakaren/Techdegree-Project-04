@@ -26,7 +26,7 @@ class Game {
        // activePhrase: This is the Phrase object that’s currently in play. 
         // The initial value is null.
         // Within the startGame() method, this property will be set to the Phrase object returned from a call to the getRandomPhrase() method.
-       this.phrase = this.createphrase();
+       this.phrase = this.createPhrase();
     }
 
 // The class should also have these methods:
@@ -47,6 +47,10 @@ startGame() {
 // getRandomPhrase(): this method randomly retrieves one of the phrases stored in the phrases array and returns it.
 getRandomPhrase() {
     return this.phrases[Math.floor(Math.random() * this.phrases.length)];
+}
+
+createPhrase() {
+
 }
 
 // handleInteraction(): this method controls most of the game logic. 
