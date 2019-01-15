@@ -4,6 +4,8 @@
 
 // Project instructions from the Treehouse website pasted throughout this file to be used as a rubric
 
+// Variables
+
 // The class should include a constructor that receives a phrase parameter and initializes the following properties:
  class Phrase {
      // phrase: this is the actual phrase the Phrase object is representing. 
@@ -16,9 +18,11 @@
 
 // addPhraseToDisplay(): this adds letter placeholders to the display when the game starts. 
     addPhraseToDisplay() {
-    
-    }
     // Each letter is presented by an empty box, one li element for each letter. 
+    const phraseDiv = document.querySelector('#phrase ul');
+    
+    // let letters = this.phrase.toUpperCase().split(''); // Converts the phrase to individual letters
+    }
     // See the example_phrase_html.txt file for an example of what the rendered HTML for a phrase should look like when the game starts, 
         // including any id or class attributes needed. 
     // When the player correctly guesses a letter, the empty box is replaced with the matched letter (see the showMatchedLetter() method below). 
