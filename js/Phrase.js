@@ -19,10 +19,29 @@
 // addPhraseToDisplay(): this adds letter placeholders to the display when the game starts. 
     addPhraseToDisplay() {
     // Each letter is presented by an empty box, one li element for each letter. 
-    const phraseDiv = document.querySelector('#phrase ul');
-    
-    // let letters = this.phrase.toUpperCase().split(''); // Converts the phrase to individual letters
+    // let phraseDiv = document.querySelector('#phrase ul');
+    let phraseDiv = document.getElementById('phrase').getElementsByTagName('ul')[0];
+    for (let i = 0; i < this.phrase.length; i += 1) {
+        let newListElement = document.createElement('li');
+			let character = this.phrase[i];
+			if (character === ' ') {
+				newListElement.className = 'space';
+			} else {
+				newListElement.className = 'letter';
+			}
+			newListElement.textContent = character;
+			phraseDiv.appendChild(newListElement);
+        }
+        // Prevents player from using the mouse to highlight the letters in the phrase (no cheating!)
+        document.addEventListener('mousedown', function (e) {
+            e.preventDefault();
+          })
     }
+     
+
+
+    // let letters = this.phrase.toUpperCase().split(''); // Converts the phrase to individual letters
+    
     // See the example_phrase_html.txt file for an example of what the rendered HTML for a phrase should look like when the game starts, 
         // including any id or class attributes needed. 
     // When the player correctly guesses a letter, the empty box is replaced with the matched letter (see the showMatchedLetter() method below). 
@@ -30,15 +49,11 @@
 
 
 // checkLetter(): checks to see if the letter selected by the player matches a letter in the phrase.
-    checkLetter() {
-
-    }
+    // checkLetter() {}
 
 
 // showMatchedLetter(): reveals the letter(s) on the board that matches the player's selection. 
-    showMatchedLetter() {
-
-    }
+    // showMatchedLetter() {}
     // To reveal the matching letter(s), select all of the letter DOM elements that have a CSS class name that matches the selected letter 
     // and replace each selected element's hide CSS class with the show CSS class.
 

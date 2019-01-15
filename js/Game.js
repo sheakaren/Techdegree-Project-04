@@ -39,7 +39,7 @@ getRandomPhrase() {
 }
 
 // startGame()
-startGame() {
+startGame() {    
     // hides the start screen overlay
     $overlay.hide();
     // calls the getRandomPhrase() method and sets the activePhrase property with the chosen phrase
@@ -53,9 +53,7 @@ startGame() {
 // handleInteraction(): this method controls most of the game logic. 
     // It checks to see if the button clicked by the player matches a letter in the phrase, 
         // and then directs the game based on a correct or incorrect guess.
-handleInteraction() {
-
-}
+// handleInteraction() {}
 // This method should:
     // Disable the selected letter’s onscreen keyboard button.
 
@@ -66,7 +64,7 @@ handleInteraction() {
         // call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. If the player has won the game, also call the gameOver() method.
 
 // removeLife(): this method removes a life from the scoreboard, 
-removeLife() {
+// removeLife() {
     // adds to the missed count by increments of 1
     // this.missed += 1;
     // // replaces one of the liveHeart.png images with a lostHeart.png image (found in the images folder) and increments the missed property. 
@@ -78,13 +76,13 @@ removeLife() {
     // if (this.missed === 5) {
     //     this.gameOver();
     // }
-}
+// }
 
 // checkForWin(): this method checks to see if the player has revealed all of the letters in the active phrase.
-checkForWin() {}
+// checkForWin() {}
 
 // gameOver(): this method displays the original start screen overlay, and depending on the outcome of the game, 
-gameOver() {}
+// gameOver() {}
     // updates the overlay h1 element with a friendly win or loss message, 
     // and replaces the overlay’s start CSS class with either the win or lose CSS class.
 

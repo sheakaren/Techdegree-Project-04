@@ -8,7 +8,7 @@
 const $startGameBtn = $('#btn__reset');
 const $qwerty = $('#qwerty');
 // Create a new instance of the Game class 
-let newGame = new Game;
+let newGame = new Game();
 
 // Add a click event listener to the "Start Game" button which creates a new Game object and starts the game by calling the startGame() method.
 $startGameBtn.click(function() {
