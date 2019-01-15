@@ -5,7 +5,8 @@
 // Project instructions from the Treehouse website pasted throughout this file to be used as a rubric
 
 // Variables
-const overlay = $('#overlay');
+// const $overlay = $('#overlay');
+const $overlay = $('#overlay');
 
 // Create the Game class in the Game.js file.
 class Game {
@@ -34,7 +35,7 @@ class Game {
 // startGame()
 startGame() {
     // hides the start screen overlay
-    overlay.hide();
+    $overlay.hide();
     // calls the getRandomPhrase() method
     getRandomPhrase()
     // sets the activePhrase property with the chosen phrase
