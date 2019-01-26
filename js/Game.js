@@ -61,6 +61,7 @@ startGame() {
    
 
 handleInteraction() {
+    // This method should:
     // Disable the selected letter’s onscreen keyboard button.
     if (this.activePhrase.checkLetter(letter.textContent)) {
         this.activePhrase.showMatchedLetter(letter);
@@ -68,14 +69,20 @@ handleInteraction() {
         letter.className = 'chosen';
         letter.prop('disabled', true);
     }         
-
+    // If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
+    if (matched === false) {
+        letter.className = 'wrong';
+    }
+     // If the phrase includes the guessed letter, add the chosen CSS class to the selected letter's keyboard button, 
+        // call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. If the player has won the game, also call the gameOver() method.
+    if (matched === true) {
+        letter.className = 'chosen';
+        showMatchedLetter();
+        checkForWin();
+    }
 } //end handleInteraction
 
-// This method should:
-    // If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
-    // If the phrase includes the guessed letter, add the chosen CSS class to the selected letter's keyboard button, 
-        // call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. If the player has won the game, also call the gameOver() method.
-
+   
 // removeLife(): this method removes a life from the scoreboard, 
 // removeLife() {
     // adds to the missed count by increments of 1
