@@ -6,6 +6,9 @@
 
 // Variables
 let matched = false;
+let indivLetter = $('.letter');
+let letterCheck = this.phrase;
+
 
 // The class should include a constructor that receives a phrase parameter and initializes the following properties:
  class Phrase {
@@ -42,8 +45,7 @@ let matched = false;
      
 // checkLetter(): checks to see if the letter selected by the player matches a letter in the phrase.
     checkLetter(letter) {
-        let letterCheck = this.phrase;
-        if(letterCheck.includes(letter)) {
+        if(letterCheck.contains(letterCheck)) {
             matched = true;
         } else {
            matched = false;
@@ -57,7 +59,7 @@ let matched = false;
     // To reveal the matching letter(s), select all of the letter DOM elements that have a CSS class name that matches the selected letter 
         // and replace each selected element's hide CSS class with the show CSS class.
         if (matched = true) {
-            letter.className = 'show';
+            letterCheck.className = 'show';
         };
     } // end showMatchedLetter()
 
