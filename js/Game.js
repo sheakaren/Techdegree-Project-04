@@ -60,16 +60,16 @@ startGame() {
 
    
 
-// handleInteraction() {
-//     // Disable the selected letter’s onscreen keyboard button.
-//     if (this.activePhrase.checkLetter(letter.textContent)) {
-//         this.activePhrase.showMatchedLetter(letter);
-//         console.log('boobs');
-//         letter.className = 'chosen';
-//         letter.prop('disabled', true);
-//     }         
+handleInteraction() {
+    // Disable the selected letter’s onscreen keyboard button.
+    if (this.activePhrase.checkLetter(letter.textContent)) {
+        this.activePhrase.showMatchedLetter(letter);
+        console.log('meow');
+        letter.className = 'chosen';
+        letter.prop('disabled', true);
+    }         
 
-// } //end handleInteraction
+} //end handleInteraction
 
 // This method should:
     // If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
