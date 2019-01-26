@@ -27,4 +27,4 @@ $qwerty.click(function() {
         // Event delegation can also be used in  order to avoid having to add an event listener to each individual keyboard button. 
         // Clicking the space between and around the onscreen keyboard buttons should not result in the handleInteraction() method being called.
 
-        
+  

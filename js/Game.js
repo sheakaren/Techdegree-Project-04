@@ -53,14 +53,27 @@ startGame() {
 // handleInteraction(): this method controls most of the game logic. 
     // It checks to see if the button clicked by the player matches a letter in the phrase, 
         // and then directs the game based on a correct or incorrect guess.
-// handleInteraction() {}
-// This method should:
-    // Disable the selected letter’s onscreen keyboard button.
+        
+         // idk if i'll need these variables, but here they are just in case
+        //     const $wrong = $('.wrong');
+        //     const $chosen = $('.chosen');
 
+   
+
+// handleInteraction() {
+//     // Disable the selected letter’s onscreen keyboard button.
+//     if (this.activePhrase.checkLetter(letter.textContent)) {
+//         this.activePhrase.showMatchedLetter(letter);
+//         console.log('boobs');
+//         letter.className = 'chosen';
+//         letter.prop('disabled', true);
+//     }         
+
+// } //end handleInteraction
+
+// This method should:
     // If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
-            // const wrong = $('.wrong')
     // If the phrase includes the guessed letter, add the chosen CSS class to the selected letter's keyboard button, 
-            // const chosen = $('.chosen')
         // call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. If the player has won the game, also call the gameOver() method.
 
 // removeLife(): this method removes a life from the scoreboard, 
