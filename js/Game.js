@@ -58,7 +58,6 @@ handleInteraction() {
     // Disable the selected letter’s onscreen keyboard button.
     if (this.activePhrase.checkLetter(letterCheck.textContent)) {
         this.activePhrase.showMatchedLetter(letter);
-        console.log('meow');
         letterCheck.className = 'chosen';
         letterCheck.prop('disabled', true);
     }         
@@ -74,6 +73,7 @@ handleInteraction() {
         newGame.checkForWin();
     }
 } //end handleInteraction
+
 
    
 // removeLife(): this method removes a life from the scoreboard, 

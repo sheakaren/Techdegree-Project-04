@@ -6,7 +6,7 @@
 
 // Variables
 const $startGameBtn = $('#btn__reset');
-const $qwerty = $('#qwerty');
+const $qwerty = $('#qwerty button');
 // Create a new instance of the Game class 
 let newGame = new Game();
 
@@ -17,9 +17,9 @@ $startGameBtn.click(function() {
 });
 
 // Add event listeners for each of the onscreen keyboard buttons so that clicking a button calls the handleInteraction() method on the Game object.
-$qwerty.click(function() {
-    console.log('qwerty'); // Test to make sure it works. Boom. It does. I'm a genius.
-    newGame.handleInteraction();
+$qwerty.click(function(event) {
+    console.log('qwerty button clicked'); // Test to make sure it works.
+    newGame.handleInteraction(event);
 });
 
 

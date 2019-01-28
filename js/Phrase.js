@@ -15,7 +15,7 @@ let letterCheck = this.phrase;
      // phrase: this is the actual phrase the Phrase object is representing. 
      // This property should be set to the phrase parameter, but converted to all lower case.
      constructor (phrase) {
-        this.phrase = phrase;
+        this.phrase = phrase.toLowerCase();
      }
 
 // The class should also have these methods:
@@ -39,14 +39,15 @@ let letterCheck = this.phrase;
         // Prevents player from using the mouse to highlight the letters in the phrase (no cheating!)
         document.addEventListener('mousedown', function (e) {
             e.preventDefault();
-          }); // Credit for this snippet goes to Emma from Treehouse via Slack
+          }); // <--- Credit for this snippet goes to Emma from Treehouse via Slack
         // When the player correctly guesses a letter, the empty box is replaced with the matched letter (see the showMatchedLetter() method below). 
     } // end addPhraseToDisplay()
      
 // checkLetter(): checks to see if the letter selected by the player matches a letter in the phrase.
     checkLetter(letter) {
-        if(letterCheck.contains(letterCheck)) {
+        if(this.phrase.includes(letter)) {
             matched = true;
+            console.log('true');
         } else {
            matched = false;
         };
@@ -54,16 +55,15 @@ let letterCheck = this.phrase;
     
 
 
+
 // showMatchedLetter(): reveals the letter(s) on the board that matches the player's selection. 
+    // // To reveal the matching letter(s), select all of the letter DOM elements that have a CSS class name that matches the selected letter 
+    //     // and replace each selected element's hide CSS class with the show CSS class.
     showMatchedLetter(letter) {
-    // To reveal the matching letter(s), select all of the letter DOM elements that have a CSS class name that matches the selected letter 
-        // and replace each selected element's hide CSS class with the show CSS class.
-        if (matched = true) {
-            letterCheck.className = 'show';
-        };
-    } // end showMatchedLetter()
-
-    
-
+		if (matched === true) {
+            
+        }
+	}// end showMatchedLetter()
+  
 
  } // end Phrase class
