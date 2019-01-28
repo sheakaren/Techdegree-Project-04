@@ -50,7 +50,9 @@ let letterCheck = this.phrase;
             console.log('true');
         } else {
            matched = false;
+           console.log('false');
         };
+        this.showMatchedLetter();
       } // end checkLetter()
     
 
@@ -60,10 +62,13 @@ let letterCheck = this.phrase;
     // // To reveal the matching letter(s), select all of the letter DOM elements that have a CSS class name that matches the selected letter 
     //     // and replace each selected element's hide CSS class with the show CSS class.
     showMatchedLetter(letter) {
-		if (matched === true) {
-            
-        }
-	}// end showMatchedLetter()
+        console.log(letter);
+        let characterList = $('#phrase li');
+        for (let i = 0; i < characterList.length; i += 1) {   
+            if (characterList[i].textContent == letter) {
+                $(characterList[i]).removeClass('hide').addClass('show');
+        }     
+	}}// end showMatchedLetter()
   
 
  } // end Phrase class

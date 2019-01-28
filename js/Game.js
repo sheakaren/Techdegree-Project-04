@@ -53,7 +53,8 @@ startGame() {
 // handleInteraction(): this method controls most of the game logic. 
     // It checks to see if the button clicked by the player matches a letter in the phrase, 
         // and then directs the game based on a correct or incorrect guess.
-handleInteraction() {
+handleInteraction(letterCheck) {
+    let letter = letterCheck.textContent;
     // This method should:
     // Disable the selected letter’s onscreen keyboard button.
     if (this.activePhrase.checkLetter(letterCheck.textContent)) {
@@ -69,8 +70,8 @@ handleInteraction() {
         // call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. If the player has won the game, also call the gameOver() method.
     if (matched === true) {
         letterCheck.className = 'chosen';
-        newGame.showMatchedLetter();
-        newGame.checkForWin();
+        this.activePhrase.showMatchedLetter(letter);
+        this.activePhrase.checkForWin();
     }
 } //end handleInteraction
 
@@ -91,7 +92,7 @@ handleInteraction() {
     // }
 // }
 
-// checkForWin(): this method checks to see if the player has revealed all of the letters in the active phrase.
+// checkForWin(letter): this method checks to see if the player has revealed all of the letters in the active phrase.
 // checkForWin() {}
 
 // gameOver(): this method displays the original start screen overlay, and depending on the outcome of the game, 

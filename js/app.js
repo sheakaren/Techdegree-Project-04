@@ -19,7 +19,7 @@ $startGameBtn.click(function() {
 // Add event listeners for each of the onscreen keyboard buttons so that clicking a button calls the handleInteraction() method on the Game object.
 $qwerty.click(function(event) {
     console.log('qwerty button clicked'); // Test to make sure it works.
-    newGame.handleInteraction(event);
+    newGame.handleInteraction(event.target);
 });
 
 
