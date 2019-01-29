@@ -14,6 +14,8 @@ let $gameOverMessage = $('#game-over-message');
 let $header = $('.header');
 let $header2 = $('.header2');
 
+// Just some fancy fun stuff
+    // Hides secondary headers and fades in the HIMYM subtitle
 $header.hide();
 $header2.hide();
 $himym.hide().delay(1000).fadeIn(4000);
@@ -47,11 +49,11 @@ getRandomPhrase() {
     let randomPhrase = this.phrases[Math.floor(Math.random() * this.phrases.length)];
         // console.log(randomPhrase); // test to make sure the variable returns a random phrase from the phrases array. 
     return randomPhrase;
-}
+} // end getRandomPhrase();
 
 // startGame()
 startGame() {    
-    // hides the start screen overlay
+    // fades out the start screen overlay and fades the secondary headers in
     $overlay.fadeOut(7500);
     $header.delay(5000).fadeIn(6500);
     $header2.delay(7000).fadeIn(6500);
@@ -62,6 +64,7 @@ startGame() {
     this.activePhrase = new Phrase(chosenPhrase);
     // Adds that phrase to the board by calling the addPhraseToDisplay() method on the active Phrase object.
     this.activePhrase.addPhraseToDisplay(); 
+    // added a little musical flair
     let themeSong = new Audio('https://jukehost.co.uk/api/audio/5f5564f702416bf31d9d2d1944d80afbb0c99d9f/94513b5f9b6');
     themeSong.play();
 } 
@@ -77,7 +80,6 @@ handleInteraction(letterCheck) {
         this.activePhrase.showMatchedLetter(letter);
         letterCheck.disabled = true;
     }         
-
     // If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
     if (matched === false) {
         letterCheck.className = 'wrong';
@@ -101,7 +103,7 @@ removeLife() {
     // replaces one of the liveHeart.png (or in my case yellowUmbrella.png) images with a lostHeart.png(frenchHorn.png) image (found in the images folder) and increments the missed property. 
     const heart = $('.tries'); 
     for (let i = 0; i < this.missed; i += 1) {
-        heart[i].innerHTML = '<img src="images/frenchHorn.png" alt="Blue French Horn" height="45" width="60">';
+        heart[i].innerHTML = '<img src="images/frenchHorn.png" alt="RIP Tracy" height="45" width="60">';
         // If the player has five missed guesses (i.e they're out of lives), then end the game by calling the gameOver() method.
         if (this.missed === 5) {
             this.gameOver();

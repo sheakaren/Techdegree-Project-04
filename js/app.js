@@ -15,13 +15,13 @@ $startGameBtn.click(function() {
 
 // Add event listeners for each of the onscreen keyboard buttons so that clicking a button calls the handleInteraction() method on the Game object.
 $qwerty.click(function(event) {
+        // Event delegation can also be used in  order to avoid having to add an event listener to each individual keyboard button. 
+        // Clicking the space between and around the onscreen keyboard buttons should not result in the handleInteraction() method being called.
     // console.log('qwerty button clicked'); // Test to make sure it works.
     newGame.handleInteraction(event.target);
 });
 
 
 
-        // Event delegation can also be used in  order to avoid having to add an event listener to each individual keyboard button. 
-        // Clicking the space between and around the onscreen keyboard buttons should not result in the handleInteraction() method being called.
 
   

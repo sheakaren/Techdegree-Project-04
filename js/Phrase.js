@@ -20,7 +20,6 @@ let matched = false;
 // addPhraseToDisplay(): this adds letter placeholders to the display when the game starts. 
     addPhraseToDisplay() {
     // Each letter is presented by an empty box, one li element for each letter. 
-    // let phraseDiv = document.getElementById('phrase').getElementsByTagName('ul')[0];
         const phraseDiv = document.querySelector("#phrase ul");
         for (let i = 0; i < this.phrase.length; i += 1) {
         let newListElement = document.createElement('li');
@@ -40,7 +39,6 @@ let matched = false;
         document.addEventListener('mousedown', function (e) {
             e.preventDefault();
           }); // <--- Credit for this snippet goes to Emma from Treehouse via Slack
-        // When the player correctly guesses a letter, the empty box is replaced with the matched letter (see the showMatchedLetter() method below). 
     } // end addPhraseToDisplay()
      
 // checkLetter(): checks to see if the letter selected by the player matches a letter in the phrase.
@@ -63,13 +61,14 @@ let matched = false;
     //     // and replace each selected element's hide CSS class with the show CSS class.
     showMatchedLetter(letter) {
         // console.log(letter); // checking to make sure it's logging the right thing
-        // selects all of the li elements, but only in the phrase div
+        // selects all of the li elements in the phrase div
         let characterList = $('#phrase li');
         for (let i = 0; i < characterList.length; i += 1) {   
             if (characterList[i].textContent === letter) {
                 $(characterList[i]).removeClass('letter').addClass('show');
         }     
-	}}// end showMatchedLetter()
+        }
+    }// end showMatchedLetter()
   
 
  } // end Phrase class
