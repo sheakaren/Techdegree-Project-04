@@ -6,19 +6,18 @@
 
 // Variables
 const $startGameBtn = $('#btn__reset');
-const $qwerty = $('#qwerty button');
 // Create a new instance of the Game class 
 let newGame = new Game();
 
 // Add a click event listener to the "Start Game" button which creates a new Game object and starts the game by calling the startGame() method.
 $startGameBtn.click(function() {
-    console.log('start'); // Test to make sure it works. And it does. Because I am very smart.
+    // console.log('start'); // Test to make sure it works. And it does. Because I am very smart.
     newGame.startGame();
 });
 
 // Add event listeners for each of the onscreen keyboard buttons so that clicking a button calls the handleInteraction() method on the Game object.
 $qwerty.click(function(event) {
-    console.log('qwerty button clicked'); // Test to make sure it works.
+    // console.log('qwerty button clicked'); // Test to make sure it works.
     newGame.handleInteraction(event.target);
 });
 

@@ -6,9 +6,6 @@
 
 // Variables
 let matched = false;
-let indivLetter = $('.letter');
-let letterCheck = this.phrase;
-
 
 // The class should include a constructor that receives a phrase parameter and initializes the following properties:
  class Phrase {
@@ -47,10 +44,10 @@ let letterCheck = this.phrase;
     checkLetter(letter) {
         if(this.phrase.includes(letter)) {
             matched = true;
-            console.log('true');
+            // console.log('true'); // check
         } else {
            matched = false;
-           console.log('false');
+        //    console.log('false'); // check
         };
         this.showMatchedLetter();
       } // end checkLetter()
@@ -62,10 +59,11 @@ let letterCheck = this.phrase;
     // // To reveal the matching letter(s), select all of the letter DOM elements that have a CSS class name that matches the selected letter 
     //     // and replace each selected element's hide CSS class with the show CSS class.
     showMatchedLetter(letter) {
-        console.log(letter);
+        // console.log(letter); // checking to make sure it's logging the right thing
+        // selects all of the li elements, but only in the phrase div
         let characterList = $('#phrase li');
         for (let i = 0; i < characterList.length; i += 1) {   
-            if (characterList[i].textContent == letter) {
+            if (characterList[i].textContent === letter) {
                 $(characterList[i]).removeClass('hide').addClass('show');
         }     
 	}}// end showMatchedLetter()

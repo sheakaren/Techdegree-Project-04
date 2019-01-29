@@ -6,6 +6,9 @@
 
 // Variables
 const $overlay = $('#overlay');
+const $qwerty = $('#qwerty button');
+let letterCheck = this.phrase;
+
 
 // Create the Game class in the Game.js file.
 class Game {
@@ -59,12 +62,13 @@ handleInteraction(letterCheck) {
     // Disable the selected letter’s onscreen keyboard button.
     if (this.activePhrase.checkLetter(letterCheck.textContent)) {
         this.activePhrase.showMatchedLetter(letter);
-        letterCheck.className = 'chosen';
         letterCheck.prop('disabled', true);
     }         
     // If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
     if (matched === false) {
+        // console.log('wrong'); // check
         letterCheck.className = 'wrong';
+        this.removeLife();
     }
      // If the phrase includes the guessed letter, add the chosen CSS class to the selected letter's keyboard button, 
         // call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. If the player has won the game, also call the gameOver() method.
@@ -78,19 +82,21 @@ handleInteraction(letterCheck) {
 
    
 // removeLife(): this method removes a life from the scoreboard, 
-// removeLife() {
+removeLife() {
     // adds to the missed count by increments of 1
-    // this.missed += 1;
-    // // replaces one of the liveHeart.png images with a lostHeart.png image (found in the images folder) and increments the missed property. 
-    // const heart = $('.tries'); 
-    // for (let i = 0; i < this.missed; i += 1) {
-    //     heart[i].src = 'images/lostHeart.png'
-    // }
-    //     // If the player has five missed guesses (i.e they're out of lives), then end the game by calling the gameOver() method.
-    // if (this.missed === 5) {
-    //     this.gameOver();
-    // }
-// }
+    this.missed += 1;
+    // replaces one of the liveHeart.png images with a lostHeart.png image (found in the images folder) and increments the missed property. 
+    const heart = $('.tries'); 
+    console.log(heart);
+    for (let i = 0; i < this.missed; i += 1) {
+        heart[i].remove();
+        heart[i].prepend('<img src="images/lostheart.png">');
+    }
+        // If the player has five missed guesses (i.e they're out of lives), then end the game by calling the gameOver() method.
+    if (this.missed === 5) {
+        this.gameOver();
+    }
+} // end removeLife();
 
 // checkForWin(letter): this method checks to see if the player has revealed all of the letters in the active phrase.
 // checkForWin() {}
