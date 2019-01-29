@@ -20,8 +20,9 @@ let matched = false;
 // addPhraseToDisplay(): this adds letter placeholders to the display when the game starts. 
     addPhraseToDisplay() {
     // Each letter is presented by an empty box, one li element for each letter. 
-    let phraseDiv = document.getElementById('phrase').getElementsByTagName('ul')[0];
-    for (let i = 0; i < this.phrase.length; i += 1) {
+    // let phraseDiv = document.getElementById('phrase').getElementsByTagName('ul')[0];
+        const phraseDiv = document.querySelector("#phrase ul");
+        for (let i = 0; i < this.phrase.length; i += 1) {
         let newListElement = document.createElement('li');
         // The phrase displayed on the screen uses the letter CSS class for letters and the space CSS class for spaces.
         let character = this.phrase[i];
@@ -29,8 +30,10 @@ let matched = false;
 				newListElement.className = 'space';
 			} else {
 				newListElement.className = 'letter';
-			}
-			newListElement.textContent = character;
+            }
+            // create a new li, whose text content is the chosen phrase split by character by the function above
+            newListElement.textContent = character;
+            // add the new li to the phraseDiv
 			phraseDiv.appendChild(newListElement);
         }
         // Prevents player from using the mouse to highlight the letters in the phrase (no cheating!)
@@ -64,7 +67,7 @@ let matched = false;
         let characterList = $('#phrase li');
         for (let i = 0; i < characterList.length; i += 1) {   
             if (characterList[i].textContent === letter) {
-                $(characterList[i]).removeClass('hide').addClass('show');
+                $(characterList[i]).removeClass('letter').addClass('show');
         }     
 	}}// end showMatchedLetter()
   

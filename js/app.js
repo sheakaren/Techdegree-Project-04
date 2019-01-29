@@ -4,8 +4,6 @@
 
 // Project instructions from the Treehouse website pasted throughout this file to be used as a rubric
 
-// Variables
-const $startGameBtn = $('#btn__reset');
 // Create a new instance of the Game class 
 let newGame = new Game();
 

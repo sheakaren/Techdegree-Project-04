@@ -5,10 +5,18 @@
 // Project instructions from the Treehouse website pasted throughout this file to be used as a rubric
 
 // Variables
+let letterCheck = this.phrase;
+const $startGameBtn = $('#btn__reset');
 const $overlay = $('#overlay');
 const $qwerty = $('#qwerty button');
-let letterCheck = this.phrase;
+let $himym = $('#himym');
+let $gameOverMessage = $('#game-over-message');
+let $header = $('.header');
+let $header2 = $('.header2');
 
+$header.hide();
+$header2.hide();
+$himym.hide().delay(1000).fadeIn(4000);
 
 // Create the Game class in the Game.js file.
 class Game {
@@ -37,20 +45,25 @@ class Game {
 // getRandomPhrase(): this method randomly retrieves one of the phrases stored in the phrases array and returns it.
 getRandomPhrase() {
     let randomPhrase = this.phrases[Math.floor(Math.random() * this.phrases.length)];
-        console.log(randomPhrase); // test to make sure the variable returns a random phrase from the phrases array. 
+        // console.log(randomPhrase); // test to make sure the variable returns a random phrase from the phrases array. 
     return randomPhrase;
 }
 
 // startGame()
 startGame() {    
     // hides the start screen overlay
-    $overlay.hide();
+    $overlay.fadeOut(7500);
+    $header.delay(5000).fadeIn(6500);
+    $header2.delay(7000).fadeIn(6500);
+    // $overlay.hide();
     // calls the getRandomPhrase() method and sets the activePhrase property with the chosen phrase
     let chosenPhrase = this.getRandomPhrase();
     // Sends chosenPhrase to the Phrase class
     this.activePhrase = new Phrase(chosenPhrase);
     // Adds that phrase to the board by calling the addPhraseToDisplay() method on the active Phrase object.
     this.activePhrase.addPhraseToDisplay(); 
+    let themeSong = new Audio('https://jukehost.co.uk/api/audio/5f5564f702416bf31d9d2d1944d80afbb0c99d9f/94513b5f9b6');
+    themeSong.play();
 } 
 
 // handleInteraction(): this method controls most of the game logic. 
@@ -62,11 +75,11 @@ handleInteraction(letterCheck) {
     // Disable the selected letter’s onscreen keyboard button.
     if (this.activePhrase.checkLetter(letterCheck.textContent)) {
         this.activePhrase.showMatchedLetter(letter);
-        letterCheck.prop('disabled', true);
+        letterCheck.disabled = true;
     }         
+
     // If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
     if (matched === false) {
-        // console.log('wrong'); // check
         letterCheck.className = 'wrong';
         this.removeLife();
     }
@@ -85,30 +98,48 @@ handleInteraction(letterCheck) {
 removeLife() {
     // adds to the missed count by increments of 1
     this.missed += 1;
-    // replaces one of the liveHeart.png images with a lostHeart.png image (found in the images folder) and increments the missed property. 
+    // replaces one of the liveHeart.png (or in my case yellowUmbrella.png) images with a lostHeart.png(frenchHorn.png) image (found in the images folder) and increments the missed property. 
     const heart = $('.tries'); 
     for (let i = 0; i < this.missed; i += 1) {
-        heart[0].remove();
-        heart[i].src("img", "images/frenchHorn.png");
+        heart[i].innerHTML = '<img src="images/frenchHorn.png" alt="Blue French Horn" height="45" width="60">';
+        // If the player has five missed guesses (i.e they're out of lives), then end the game by calling the gameOver() method.
         if (this.missed === 5) {
             this.gameOver();
         }
-    }
-        // If the player has five missed guesses (i.e they're out of lives), then end the game by calling the gameOver() method.
-    
+    }   
 } // end removeLife();
 
-// checkForWin(letter): this method checks to see if the player has revealed all of the letters in the active phrase.
+// checkForWin(): this method checks to see if the player has revealed all of the letters in the active phrase.
 checkForWin() {
+    let notGuessed = document.getElementsByClassName('letter').length;
+    // updates the overlay h1 element with a friendly win message, 
+        // and replaces the overlay’s start CSS class with the win CSS class.
+    if (notGuessed === 0) {
+        $himym.hide();
+        $overlay.show().addClass('win');
+        $gameOverMessage.text('Legen - wait for it - dary! You win!').addClass('header2');
+        $startGameBtn.text('Suit Up Again?');
+        $startGameBtn.click(function() {
+            location.reload();
+        })
 
-}
+    }
+} // end checkforWin();
 
 // gameOver(): this method displays the original start screen overlay, and depending on the outcome of the game, 
 gameOver() {
-    console.log('you lose');
-}
-    // updates the overlay h1 element with a friendly win or loss message, 
-    // and replaces the overlay’s start CSS class with either the win or lose CSS class.
+    // updates the overlay h1 element with a friendly loss message, 
+        // and replaces the overlay’s start CSS class with the lose CSS class.
+    if (this.missed === 5) {
+        $himym.hide();
+        $overlay.show().addClass('lose');
+        $gameOverMessage.text('Classic Shmosby! You lose!');
+        $startGameBtn.removeAttr('id').addClass('lose__button').text('Suit Up Again?');
+        $startGameBtn.click(function() {
+            location.reload();
+        })
+    }
+} // end gameOver();
 
 
 } // end Game class

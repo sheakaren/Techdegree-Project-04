@@ -4,11 +4,11 @@
 /* Variables */
 
 :root {
-  --color-win: #78CF82;
-  --color-lose: #D94545;
+  --color-win: #E9F30F;
+  --color-lose: #0e44fe;
   --color-start: #5b85b7;
   --color-neutral: #384869;
-  --color-neutral-light: rgb(243, 241, 118);
+  --color-neutral-light: #ffff56;
   --color-keys: rgb(57, 86, 100);
   --color-keys-light: rgb(158, 187, 211);
   --font-size-large: 60px;
@@ -64,7 +64,8 @@ button {
   background: #0e44fe;
   color: #000;
 	width: 200px;
-	margin: 0 auto;
+  margin: 0 auto;
+  font-weight: bold;
 }
 
 .main-container {
@@ -201,9 +202,25 @@ button {
 }
 
 .lose {
-  background-color: #f5785f;
+  background-color: #0e44fe;
 }
 
 .lose a {
   color: var(--color-lose);
+}
+
+.lose__button {
+  background: #E9F30F;
+  color: #000;
+	width: 200px;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.win__button {
+  background: #0e44fe;
+  color: #000;
+	width: 200px;
+  margin: 0 auto;
+  font-weight: bold;
 }
