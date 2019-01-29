@@ -75,7 +75,7 @@ handleInteraction(letterCheck) {
     if (matched === true) {
         letterCheck.className = 'chosen';
         this.activePhrase.showMatchedLetter(letter);
-        this.activePhrase.checkForWin();
+        this.checkForWin();
     }
 } //end handleInteraction
 
@@ -87,22 +87,26 @@ removeLife() {
     this.missed += 1;
     // replaces one of the liveHeart.png images with a lostHeart.png image (found in the images folder) and increments the missed property. 
     const heart = $('.tries'); 
-    console.log(heart);
     for (let i = 0; i < this.missed; i += 1) {
-        heart[i].remove();
-        heart[i].prepend('<img src="images/lostheart.png">');
+        heart[0].remove();
+        heart[i].src("img", "images/frenchHorn.png");
+        if (this.missed === 5) {
+            this.gameOver();
+        }
     }
         // If the player has five missed guesses (i.e they're out of lives), then end the game by calling the gameOver() method.
-    if (this.missed === 5) {
-        this.gameOver();
-    }
+    
 } // end removeLife();
 
 // checkForWin(letter): this method checks to see if the player has revealed all of the letters in the active phrase.
-// checkForWin() {}
+checkForWin() {
+
+}
 
 // gameOver(): this method displays the original start screen overlay, and depending on the outcome of the game, 
-// gameOver() {}
+gameOver() {
+    console.log('you lose');
+}
     // updates the overlay h1 element with a friendly win or loss message, 
     // and replaces the overlay’s start CSS class with either the win or lose CSS class.
 
